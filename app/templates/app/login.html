@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="https://static.xx.fbcdn.net/rsrc.php/yo/r/iRmz9lCMBD2.ico" type="image/x-icon">
-    <title>facebool - log in or sign up</title>
+    <title>Facebool - log in or sign up</title>
 </head>
 <body>
     <div class="container">
@@ -32,10 +32,10 @@
                 <form class="form" action="" method="post">
                     {% csrf_token %}
                     <div class="input_container">
-                        <input type="email" placeholder="Email Address" name="email" id="email">
+                        <input type="email" placeholder="Email Address" name="email" id="email" required>
                     </div>
                     <div class="input_container">
-                        <input type="password" placeholder="Password" name="password" id="password">
+                        <input type="password" placeholder="Password" name="password" id="password" required>
                     </div>
                     <div class="input_container submit-container">
                         <input type="submit" value="Log In">

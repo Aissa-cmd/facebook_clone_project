@@ -55,6 +55,7 @@ class Account(models.Model):
     gender = models.CharField(max_length=1, choices=gender_choices)
     profile_image = models.URLField(
         default='https://www.meme-arsenal.com/memes/8b6f5f94a53dbc3c8240347693830120.jpg')
+    background_image = models.URLField()
 
     def __str__(self):
         return f'{self.user.email} |Profile'

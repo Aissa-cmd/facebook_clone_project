@@ -32,3 +32,7 @@ def login_view(request):
 
 def logout_view(request):
     return
+
+
+def profile_view(request):
+    return render(request, 'app/profile.html')
