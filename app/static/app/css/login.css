@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: #f0f2f5;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container__left {
+    max-width: 500px;
+    margin-right: 100px;
+}
+
+.container__left .logo > img {
+    width: 301px;
+    margin-left: -28px;
+}
+
+.container__left .text {
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    max-width: 100%;
+}
+
+.form_container {
+    max-width: 396px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 10px 8px 30px 8px;
+    border-radius: 8px;
+}
+
+.input_container {
+    margin: 8px;
+    background-color: green;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #cbcccfe0;
+    width: 380px;
+    margin-bottom: 10px;
+}
+
+.input_container:hover {
+    box-shadow: 0 0 0 2px #e7f3ff;
+    border-color: #1877f2;
+}
+
+input {
+    width: 100%;
+    height: 100%;
+    padding: 14px 20px;
+    border: none;
+    outline: none;
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+}
+
+input[type="email"],
+input[type="password"] {
+    cursor: text;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+    background-color: #1877f2;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: "Varela Round", sans-serif;
+    font-weight: bold;
+}
+
+input[type="submit"]:hover {
+    background-color: #166fe5;
+}
+
+.submit-container {
+    border: none;
+}
+
+.horizontal-line {
+    width: 95%;
+    height: 1px;
+    background-color: #cbcccfe0;
+}
+
+.forget_password {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.forget_password > a {
+    text-decoration: none;
+    color: #1877f2;
+    font-family: "Varela Round", sans-serif;
+    font-size: 15px;
+}
+
+.forget_password > a:hover {
+    text-decoration: underline;
+}
+
+.new_account {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.create_new_account_btn {
+    cursor: pointer;
+    padding: 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: #42b72a;
+    color: #ffffff;
+    font-size: 18px;
+    font-family: "Varela Round", sans-serif;
+    font-weight: bold;
+    outline: none;
+}
+
+.create_new_account_btn:focus {
+    outline: none;
+}
+
+.create_new_account_btn:hover {
+    background-color: #36a420;
+}
+
+.messages_container {
+    max-width: 100%;
+    padding: 1rem 1rem;
+    margin: 8px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+    font-family: "Roboto", sans-serif;
+}
+
+@media only screen and (max-width: 1145px) {
+    .container {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 30px;
+    }
+    .container__left {
+        margin-bottom: 40px;
+        max-width: 396px;
+        box-sizing: border-box;
+        background-color: green;
+    }
+}
