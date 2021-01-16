@@ -66,6 +66,30 @@ body {
     font-size: 23px;
 }
 
+.avatar_container {
+    width: auto;
+    height: 30px;
+    padding: 2px;
+    background-color: #e4e6eb;
+    border-radius: 50px;
+    margin: 0 5px;
+    overflow: hidden;
+    border: 2px solid grey;
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+}
+
+.user_avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+}
+
+.username {
+    margin: 0 3px;
+}
+
 .navbar__middle .option > i {
     padding: 13px 30px;
     border-radius: 10px;
