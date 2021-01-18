@@ -41,8 +41,9 @@
         </div>
         <div class="navbar__right">
             <div class="avatar_container" data-icon-name="Create">
-                <img class="user_avatar" src="https://dancingastronaut.com/wp-content/uploads/2017/10/21761529_1611966922200727_2629695311997614908_n.jpg">
-                <div class="username">Aissa</div>
+                <!-- <img class="user_avatar" src="https://dancingastronaut.com/wp-content/uploads/2017/10/21761529_1611966922200727_2629695311997614908_n.jpg"> -->
+                <img class="user_avatar" src="{{ user.account.profile_image }}" alt="">
+                <div class="username">{{ user.account.get_short_name }}</div>
             </div>
             <div class="right_option" data-icon-name="Create">
                 <i class="fas fa-plus"></i>
@@ -60,7 +61,35 @@
     </div>
     <div class="body">
         <div class="body-left"></div>
-        <div class="body-middle"></div>
+
+        <div class="body-middle">
+            <div class="new_post_container">
+                <div class="new_post_container__top">
+                    <div class="avatar_container_post">
+                        <img class="user_avatar_post" src="{{ user.account.profile_image }}" alt="">
+                    </div>
+                    <div class="new_post_input">
+                        <input placeholder="What's on your mind, {{ user.account.get_short_name }}?" type="text">
+                    </div>
+                </div>
+                <div class="hr_line"></div>
+                <div class="new_post_container__bottom">
+                    <div class="new_post_bottom_option">
+                        <i style="color: #f02849" class="fas fa-video"></i>
+                        <span class="option_label">Live Video</span>
+                    </div>
+                    <div class="new_post_bottom_option">
+                        <i style="color: #45bd62" class="far fa-images"></i>
+                        <span class="option_label">Photo/Video</span>
+                    </div>
+                    <div class="new_post_bottom_option">
+                        <i style="color: #f7b928" class="far fa-grin"></i>
+                        <span class="option_label">Feeling/Activity</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="body-right"></div>
     </div>
 </body>
