@@ -9,9 +9,11 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
         integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
         crossorigin="anonymous" />
-    <title>Profile</title>
+    <link rel="shortcut icon" href="https://static.xx.fbcdn.net/rsrc.php/yo/r/iRmz9lCMBD2.ico" type="image/x-icon">
+    <title>{{ user.account.get_full_name|title }} | Facebook</title>
 </head>
 <body>
+    <div class="option_info_module"></div>
     <div class="navbar">
         <div class="navbar__left">
             <div class="facebook_logo">
@@ -23,19 +25,19 @@
             </div>
         </div>
         <div class="navbar__middle">
-            <div class="option" data-icon-name="Home">
+            <div class="option option_hover" data-icon-name="Home">
                 <i class="fas fa-home"></i>
             </div>
-            <div class="option" data-icon-name="Friends">
+            <div class="option option_hover" data-icon-name="Friends">
                 <i class="fas fa-user-friends"></i>
             </div>
-            <div class="option" data-icon-name="Watch">
+            <div class="option option_hover" data-icon-name="Watch">
                 <i class="fas fa-video"></i>
             </div>
-            <div class="option" data-icon-name="Marketplace">
+            <div class="option option_hover" data-icon-name="Marketplace">
                 <i class="fas fa-store"></i>
             </div>
-            <div class="option" data-icon-name="Groups">
+            <div class="option option_hover" data-icon-name="Groups">
                 <i class="fas fa-users"></i>
             </div>
         </div>
@@ -43,18 +45,18 @@
             <div class="avatar_container" data-icon-name="Create">
                 <!-- <img class="user_avatar" src="https://dancingastronaut.com/wp-content/uploads/2017/10/21761529_1611966922200727_2629695311997614908_n.jpg"> -->
                 <img class="user_avatar" src="{{ user.account.profile_image }}" alt="">
-                <div class="username">{{ user.account.get_short_name }}</div>
+                <div class="username">{{ user.account.get_short_name|title }}</div>
             </div>
-            <div class="right_option" data-icon-name="Create">
+            <div class="right_option option_hover" data-icon-name="Create">
                 <i class="fas fa-plus"></i>
             </div>
-            <div class="right_option" data-icon-name="Messenger">
+            <div class="right_option option_hover" data-icon-name="Messenger">
                 <i class="fab fa-facebook-messenger"></i>
             </div>
-            <div class="right_option" data-icon-name="Notifications">
+            <div class="right_option option_hover" data-icon-name="Notifications">
                 <i class="fas fa-bell"></i>
             </div>
-            <div class="right_option" data-icon-name="Account">
+            <div class="right_option option_hover" data-icon-name="Account">
                 <i class="fas fa-sort-down"></i>
             </div>
         </div>
@@ -69,7 +71,7 @@
                         <img class="user_avatar_post" src="{{ user.account.profile_image }}" alt="">
                     </div>
                     <div class="new_post_input">
-                        <input placeholder="What's on your mind, {{ user.account.get_short_name }}?" type="text">
+                        <input placeholder="What's on your mind, {{ user.account.get_short_name|title }}?" type="text">
                     </div>
                 </div>
                 <div class="hr_line"></div>
@@ -88,9 +90,26 @@
                     </div>
                 </div>
             </div>
+
+            <div class="post_container">
+                <div class="post_top">
+                    <div class="avatar_container_post">
+                        <img class="user_avatar_post" src="{{ user.account.profile_image }}" alt="">
+                    </div>
+                    <div class="user_info">
+                        <h4>{{ user.account.get_full_name|title }}</h4>
+                        <h4>17h</h4>
+                    </div>
+                    <div class="post_options_list">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="body-right"></div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'app/js/profile.js' %}"></script>
 </body>
 </html>
