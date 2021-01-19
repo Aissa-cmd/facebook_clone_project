@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $('.option_hover').on("mouseover", function(e){
-    	const module_top = parseInt($('.navbar').css('height')) + 2;
+    	const module_top = parseInt($('.navbar').css('height')) + 2; 
     	$('.option_info_module').text($(this).attr('data-icon-name'));
     	$('.option_info_module').css('top', module_top);
     	let module_left = this.getBoundingClientRect().left;
