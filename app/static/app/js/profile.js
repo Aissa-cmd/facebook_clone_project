@@ -10,4 +10,10 @@ $(document).ready(function () {
     $('.option_hover').on('mouseleave', function(e) {
     	$('.option_info_module').css('display', 'none');
     })
+    // $('.post_options_list').on('click', function() {
+    //     console.log('click');
+    //     $('.post_options_list_module').css('display', 'block');
+    //     $('.post_options_list_module').css('top', this.getBoundingClientRect().y);
+    //     $('.post_options_list_module').css('');
+    // })
 });
