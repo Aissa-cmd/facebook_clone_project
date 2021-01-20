@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="container__right">
-            <div class="form_container">
+            <div class="login_form_container">
                 {% if messages %}
                 <div class="messages_container">
                     {% for message in messages %}
@@ -32,13 +32,13 @@
                 <form class="form" action="" method="post">
                     {% csrf_token %}
                     <div class="input_container">
-                        <input type="email" placeholder="Email Address" name="email" id="email" required>
+                        <input class="login_form_input" type="email" placeholder="Email Address" name="email" id="email" required>
                     </div>
                     <div class="input_container">
-                        <input type="password" placeholder="Password" name="password" id="password" required>
+                        <input class="login_form_input" type="password" placeholder="Password" name="password" id="password" required>
                     </div>
                     <div class="input_container submit-container">
-                        <input type="submit" value="Log In">
+                        <input class="login_form_input" type="submit" value="Log In">
                     </div>
                     <div class="forget_password">
                         <a href="">Forgotten password?</a>
@@ -51,8 +51,99 @@
             </div>
         </div>
     </div>
-    {{ user_form }}
-    {{ account_form }}
+    <div class="register_form_container">
+        <form action="/register/" method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col">
+                    {{ account_form.first_name.label_tag }}
+                    <div class="input_container">
+                    {{ account_form.first_name }}
+                    </div>
+                    {% if account_formfirst_name.errors %}
+                    {% for error in account_form.first_name.errors %}
+                    <li class="form-text text-muted error-message">{{ error }}</li>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="col">
+                    {{ account_form.last_name.label_tag }}
+                    <div class="input_container">
+                    {{ account_form.last_name }}
+                    </div>
+                    {% if account_formlast_name.errors %}
+                    {% for error in account_form.last_name.errors %}
+                    <li class="form-text text-muted error-message">{{ error }}</li>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {{ account_form.date_of_birth.label_tag }}
+                    <div class="input_container">
+                    {{ account_form.date_of_birth }}
+                    </div>
+                    {% if account_formdate_of_birth.errors %}
+                    {% for error in account_form.date_of_birth.errors %}
+                    <li class="form-text text-muted error-message">{{ error }}</li>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="col">
+                    {{ account_form.gender.label_tag }}
+                    <div class="input_container">
+                    {{ account_form.gender }}
+                    </div>
+                    {% if account_formgender.errors %}
+                    {% for error in account_form.gender.errors %}
+                    <li class="form-text text-muted error-message">{{ error }}</li>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {{ user_form.email.label_tag }}
+                    <div class="input_container">
+                        {{ user_form.email }}
+                    </div>
+                    {% if user_formemail.errors %}
+                    {% for error in user_form.email.errors %}
+                    <li class="form-text text-muted error-message">{{ error }}</li>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {{ user_form.password1.label_tag }}
+                    <div class="input_container">
+                    {{ user_form.password1 }}
+                    </div>
+                    {% if user_formpassword1.errors %}
+                    {% for error in user_form.password1.errors %}
+                    <li class="form-text text-muted error-message">{{ error }}</li>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {{ user_form.password2.label_tag }}
+                    <div class="input_container">
+                    {{ user_form.password2 }}
+                    </div>
+                    {% if user_formpassword2.errors %}
+                    {% for error in user_form.password2.errors %}
+                    <li class="form-text text-muted error-message">{{ error }}</li>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            <input type="submit" value="create account">
+        </form>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{% static 'app/js/login.js' %}"></script>
 </body>

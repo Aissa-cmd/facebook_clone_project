@@ -45,18 +45,18 @@ class User(AbstractUser):
 class Account(models.Model):
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, related_name='account')
-    first_name = models.CharField(max_length=255)
-    last_name = models.CharField(max_length=255)
-    date_of_birth = models.DateField()
+    first_name = models.CharField(max_length=255, null=False, blank=False)
+    last_name = models.CharField(max_length=255, null=False, blank=False)
+    date_of_birth = models.DateField(null=False, blank=False)
     gender_choices = (
         ('F', 'Female'),
         ('M', 'Male'),
     )
-    gender = models.CharField(max_length=1, choices=gender_choices)
+    gender = models.CharField(max_length=1, choices=gender_choices, blank=False, null=False)
     profile_image = models.URLField(
-        default='https://www.meme-arsenal.com/memes/8b6f5f94a53dbc3c8240347693830120.jpg')
+        default='https://www.meme-arsenal.com/memes/8b6f5f94a53dbc3c8240347693830120.jpg', null=False, blank=False)
     background_image = models.URLField(
-        default="https://wallpapercave.com/wp/wp3589893.jpg")
+        default="https://wallpapercave.com/wp/wp3589893.jpg", null=False, blank=False)
 
     def __str__(self):
         return f'{self.user.email} |Profile'
@@ -78,8 +78,8 @@ class Account(models.Model):
 class Post(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='posts')
-    content = models.TextField()
-    date_posted = models.DateTimeField(auto_now_add=True)
+    content = models.TextField(null=False, blank=False)
+    date_posted = models.DateTimeField(auto_now_add=True, null=False, blank=False)
 
     def __str__(self):
         return f'{self.content[:20]}... | User: {self.user.account.get_full_name()} | Date: {self.date_posted}'

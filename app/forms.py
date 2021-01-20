@@ -1,17 +1,30 @@
 from django import forms
+from django.forms import widgets
 from .models import User, Account
+from django.contrib.auth.forms import UserCreationForm
 
 
-class CreateUser(forms.ModelForm):
+class UserRegisterForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['email']
+        fields = ['email', 'password1', 'password2']
+        widgets = {
+            'email': forms.TextInput(attrs={'class': 'register_form_input'}),
+            'password1': forms.TextInput(attrs={'class': 'register_form_input', 'type': 'password'}),
+            'password2': forms.TextInput(attrs={'class': 'register_form_input', 'type': 'password'}),
+        }
 
 
 class CreateAccount(forms.ModelForm):
     class Meta:
         model = Account
         fields = ['first_name', 'last_name', 'date_of_birth', 'gender']
+        widgets = {
+            'first_name': forms.TextInput(attrs={'class': 'register_form_input'}),
+            'last_name': forms.TextInput(attrs={'class': 'register_form_input', 'type': 'date'}),
+            'date_of_birth': forms.TextInput(attrs={'class': 'register_form_input'}),
+            'gender': forms.TextInput(attrs={'class': 'register_form_input', 'type': 'select'}),
+        }
 
 
 # class CreatePost(forms.ModelForm):

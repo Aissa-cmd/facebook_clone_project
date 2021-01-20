@@ -3,7 +3,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .decorators import is_authenticated
-from .forms import CreateUser, CreateAccount
+from .forms import UserRegisterForm, CreateAccount
 
 
 @login_required
@@ -13,7 +13,7 @@ def index(request):
 
 @is_authenticated
 def login_view(request):
-    user_form = CreateUser()
+    user_form = UserRegisterForm()
     account_form = CreateAccount()
     context = {
         'user_form' : user_form,
@@ -37,9 +37,25 @@ def login_view(request):
     return render(request, 'app/login.html', context)
 
 
+def create_new_user(request):
+    if request.method == "POST":
+        user_form = UserRegisterForm(request.POST)
+        account_form = CreateAccount(request.POST)
+        account_form.instance.user = user_form.instance
+        if user_form.is_valid() and account_form.is_valid():
+            new_user_email = user_form.cleaned_data.get('email')
+            user_form.save()
+            account_form.save()
+            messages.success(request, f'account has been created successfully for {new_user_email}')
+            return redirect('login')
+    else:
+        return redirect('login')
+
+
+
 def logout_view(request):
     return
 
-
+@login_required
 def profile_view(request):
     return render(request, 'app/profile.html')
