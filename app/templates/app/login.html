@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="https://static.xx.fbcdn.net/rsrc.php/yo/r/iRmz9lCMBD2.ico" type="image/x-icon">
-    <title>Facebool - log in or sign up</title>
+    <title>Facebook - log in or sign up</title>
 </head>
 <body>
     <div class="container">
@@ -40,17 +40,19 @@
                     <div class="input_container submit-container">
                         <input class="login_form_input" type="submit" value="Log In">
                     </div>
-                    <div class="forget_password">
-                        <a href="">Forgotten password?</a>
-                    </div>
-                    <div class="horizontal-line"></div>
-                    <div class="new_account">
-                        <button class="create_new_account_btn">Create New Account</button>
-                    </div>
+                    
                 </form>
+                <div class="forget_password">
+                    <a href="">Forgotten password?</a>
+                </div>
+                <div class="horizontal-line"></div>
+                <div class="new_account">
+                    <button class="create_new_account_btn">Create New Account</button>
+                </div>
             </div>
         </div>
     </div>
+    <div class="register_form_wrapper">
     <div class="register_form_container">
         <form action="/register/" method="POST">
             {% csrf_token %}
@@ -143,6 +145,7 @@
             </div>
             <input type="submit" value="create account">
         </form>
+    </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{% static 'app/js/login.js' %}"></script>
