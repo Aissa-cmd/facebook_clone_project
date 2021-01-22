@@ -285,5 +285,14 @@ select {
         margin-bottom: 40px;
         max-width: 396px;
         box-sizing: border-box;
+        margin: 0px;
+        margin-bottom: 30px;
+    }
+    .container__left .logo {
+        display: flex;
+        justify-content: center;
+    }
+    .container__left .text {
+        text-align: center;
     }
 }
