@@ -119,12 +119,12 @@ input[type="submit"]:hover {
     margin-top: 20px;
 }
 
-.create_new_account_btn {
+.create_new_account_btn, .register_btn {
     cursor: pointer;
     padding: 16px;
     border: none;
     border-radius: 6px;
-    background-color: #42b72a;
+    background-color: #42b72a !important;
     color: #ffffff;
     font-size: 18px;
     font-family: "Varela Round", sans-serif;
@@ -132,12 +132,12 @@ input[type="submit"]:hover {
     outline: none;
 }
 
-.create_new_account_btn:focus {
+.create_new_account_btn:focus, .register_btn:focus {
     outline: none;
 }
 
-.create_new_account_btn:hover {
-    background-color: #36a420;
+.create_new_account_btn:hover, .register_btn:hover {
+    background-color: #36a420 !important;
 }
 
 .messages_container {
@@ -161,34 +161,99 @@ input[type="submit"]:hover {
     background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    padding: 10px;
+    padding: 15px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.header_left > p {
+    color: gray;
+}
+
+.header_right {
+    color: gray;
+    font-size: 23px;
+    cursor: pointer;
+}
+
 .row {
+    /*background-color: green;*/
     display: flex;
     flex-direction: row;
 }
 
 .col {
+    /*background-color: yellow;*/
+    width: 100%;
     display: flex;
     flex-direction: column;
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+
+.col label {
+    margin-bottom: 7px;
+}
+
+.register_form_wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.6);
+    display: none;
 }
 
 .register_form_container .input_container {
     margin: 0px;
     width: auto;
-    padding-right: 10px;
+    padding-right: 15px;
 }
 
-.register_form_input {
+input {
     width: 100%;
     padding: 10px;
     border: none;
     outline: none;
     flex: 1;
+}
+
+select {
+    width: 100%;
+    height: 42px;
+}
+
+.register_btn {
+    width: 50%;
+    height: 40px;
+    padding: 10px !important;
+    align-self: center;
+}
+
+.register_form_container > form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.register_form_header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.hr_line {
+    width: 100%;
+    height: 1.3px;
+    border-radius: 3px;
+    background-color: #e4e6eb;
+    margin: 10px 0;
 }
 
 @media only screen and (max-width: 1145px) {

@@ -7,8 +7,12 @@
     <link rel="stylesheet" href="{% static 'app/css/login.css' %}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
     <link rel="shortcut icon" href="https://static.xx.fbcdn.net/rsrc.php/yo/r/iRmz9lCMBD2.ico" type="image/x-icon">
-    <title>Facebool - log in or sign up</title>
+    <title>login or register</title>
 </head>
 <body>
     <div class="container">
@@ -40,109 +44,121 @@
                     <div class="input_container submit-container">
                         <input class="login_form_input" type="submit" value="Log In">
                     </div>
-                    <div class="forget_password">
-                        <a href="">Forgotten password?</a>
-                    </div>
-                    <div class="horizontal-line"></div>
-                    <div class="new_account">
-                        <button class="create_new_account_btn">Create New Account</button>
-                    </div>
                 </form>
+                <div class="forget_password">
+                    <a href="">Forgotten password?</a>
+                </div>
+                <div class="horizontal-line"></div>
+                <div class="new_account">
+                    <button class="create_new_account_btn">Create New Account</button>
+                </div>
             </div>
         </div>
     </div>
-    <div class="register_form_container">
-        <form action="/register/" method="POST">
-            {% csrf_token %}
-            <div class="row">
-                <div class="col">
-                    {{ account_form.first_name.label_tag }}
-                    <div class="input_container">
-                    {{ account_form.first_name }}
-                    </div>
-                    {% if account_formfirst_name.errors %}
-                    {% for error in account_form.first_name.errors %}
-                    <li class="form-text text-muted error-message">{{ error }}</li>
-                    {% endfor %}
-                    {% endif %}
+    <div class="register_form_wrapper">
+        <div class="register_form_container">
+            <div class="register_form_header">
+                <div class="header_left">
+                    <h1>Sign Up</h1>
+                    <p>It's quick and easy.</p>
                 </div>
-                <div class="col">
-                    {{ account_form.last_name.label_tag }}
-                    <div class="input_container">
-                    {{ account_form.last_name }}
-                    </div>
-                    {% if account_formlast_name.errors %}
-                    {% for error in account_form.last_name.errors %}
-                    <li class="form-text text-muted error-message">{{ error }}</li>
-                    {% endfor %}
-                    {% endif %}
+                <div class="header_right">
+                    <i class="fas fa-times"></i>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    {{ account_form.date_of_birth.label_tag }}
-                    <div class="input_container">
-                    {{ account_form.date_of_birth }}
+            <div class="hr_line"></div>
+            <form action="/register/" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col">
+                        {{ account_form.first_name.label_tag }}
+                        <div class="input_container">
+                        {{ account_form.first_name }}
+                        </div>
+                        {% if account_formfirst_name.errors %}
+                        {% for error in account_form.first_name.errors %}
+                        <li class="form-text text-muted error-message">{{ error }}</li>
+                        {% endfor %}
+                        {% endif %}
                     </div>
-                    {% if account_formdate_of_birth.errors %}
-                    {% for error in account_form.date_of_birth.errors %}
-                    <li class="form-text text-muted error-message">{{ error }}</li>
-                    {% endfor %}
-                    {% endif %}
-                </div>
-                <div class="col">
-                    {{ account_form.gender.label_tag }}
-                    <div class="input_container">
-                    {{ account_form.gender }}
+                    <div class="col">
+                        {{ account_form.last_name.label_tag }}
+                        <div class="input_container">
+                        {{ account_form.last_name }}
+                        </div>
+                        {% if account_formlast_name.errors %}
+                        {% for error in account_form.last_name.errors %}
+                        <li class="form-text text-muted error-message">{{ error }}</li>
+                        {% endfor %}
+                        {% endif %}
                     </div>
-                    {% if account_formgender.errors %}
-                    {% for error in account_form.gender.errors %}
-                    <li class="form-text text-muted error-message">{{ error }}</li>
-                    {% endfor %}
-                    {% endif %}
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    {{ user_form.email.label_tag }}
-                    <div class="input_container">
-                        {{ user_form.email }}
+                <div class="row">
+                    <div class="col">
+                        {{ account_form.date_of_birth.label_tag }}
+                        <div class="input_container">
+                        {{ account_form.date_of_birth }}
+                        </div>
+                        {% if account_formdate_of_birth.errors %}
+                        {% for error in account_form.date_of_birth.errors %}
+                        <li class="form-text text-muted error-message">{{ error }}</li>
+                        {% endfor %}
+                        {% endif %}
                     </div>
-                    {% if user_formemail.errors %}
-                    {% for error in user_form.email.errors %}
-                    <li class="form-text text-muted error-message">{{ error }}</li>
-                    {% endfor %}
-                    {% endif %}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    {{ user_form.password1.label_tag }}
-                    <div class="input_container">
-                    {{ user_form.password1 }}
+                    <div class="col">
+                        {{ account_form.gender.label_tag }}
+                        <div class="input_container">
+                        {{ account_form.gender }}
+                        </div>
+                        {% if account_formgender.errors %}
+                        {% for error in account_form.gender.errors %}
+                        <li class="form-text text-muted error-message">{{ error }}</li>
+                        {% endfor %}
+                        {% endif %}
                     </div>
-                    {% if user_formpassword1.errors %}
-                    {% for error in user_form.password1.errors %}
-                    <li class="form-text text-muted error-message">{{ error }}</li>
-                    {% endfor %}
-                    {% endif %}
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    {{ user_form.password2.label_tag }}
-                    <div class="input_container">
-                    {{ user_form.password2 }}
+                <div class="row">
+                    <div class="col">
+                        {{ user_form.email.label_tag }}
+                        <div class="input_container">
+                            {{ user_form.email }}
+                        </div>
+                        {% if user_formemail.errors %}
+                        {% for error in user_form.email.errors %}
+                        <li class="form-text text-muted error-message">{{ error }}</li>
+                        {% endfor %}
+                        {% endif %}
                     </div>
-                    {% if user_formpassword2.errors %}
-                    {% for error in user_form.password2.errors %}
-                    <li class="form-text text-muted error-message">{{ error }}</li>
-                    {% endfor %}
-                    {% endif %}
                 </div>
-            </div>
-            <input type="submit" value="create account">
-        </form>
+                <div class="row">
+                    <div class="col">
+                        {{ user_form.password1.label_tag }}
+                        <div class="input_container">
+                        {{ user_form.password1 }}
+                        </div>
+                        {% if user_formpassword1.errors %}
+                        {% for error in user_form.password1.errors %}
+                        <li class="form-text text-muted error-message">{{ error }}</li>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ user_form.password2.label_tag }}
+                        <div class="input_container">
+                        {{ user_form.password2 }}
+                        </div>
+                        {% if user_formpassword2.errors %}
+                        {% for error in user_form.password2.errors %}
+                        <li class="form-text text-muted error-message">{{ error }}</li>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+                <input type="submit" class="register_btn" value="create account">
+            </form>
+        </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{% static 'app/js/login.js' %}"></script>
