@@ -55,7 +55,6 @@
     border: 1px solid #cbcccfe0;
     width: 380px;
     margin-bottom: 10px;
-    padding-right: 10px;
 }
 
 .input_container:hover {
@@ -64,7 +63,7 @@
 }
 
 .login_form_input {
-    width: 100%;
+    width: 100% !important;
     height: 100%;
     padding: 14px 20px;
     border: none;
