@@ -27,11 +27,11 @@
         <div class="container__right">
             <div class="login_form_container">
                 {% if messages %}
-                <div class="messages_container">
-                    {% for message in messages %}
+                {% for message in messages %}
+                <div class="messages messages_{{ message.tags}}">
                     {{ message }}
-                    {% endfor %}
                 </div>
+                {% endfor %}
                 {% endif %}
                 <form class="form" action="" method="post">
                     {% csrf_token %}

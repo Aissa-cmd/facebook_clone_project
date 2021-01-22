@@ -145,16 +145,25 @@ input[type="submit"]:hover {
     background-color: #36a420 !important;
 }
 
-.messages_container {
+.messages {
     max-width: 100%;
     padding: 1rem 1rem;
     margin: 8px;
     border: 1px solid transparent;
     border-radius: 8px;
+    font-family: "Roboto", sans-serif;
+}
+
+.messages_info {
     color: #842029;
     background-color: #f8d7da;
     border-color: #f5c2c7;
-    font-family: "Roboto", sans-serif;
+}
+
+.messages_success {
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border-color: #badbcc;
 }
 
 .register_form_container {
