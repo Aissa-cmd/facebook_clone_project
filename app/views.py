@@ -48,13 +48,13 @@ def create_new_user(request):
             account_form.save()
             messages.success(request, f'account has been created successfully for {new_user_email}')
             return redirect('login')
-    else:
-        return redirect('login')
-
+    messages.info(request, 'There was a problem creating your account, please try again and make sure you enter the right information.')   
+    return redirect('login')
 
 
 def logout_view(request):
     return
+
 
 @login_required
 def profile_view(request):

@@ -163,7 +163,8 @@ input[type="submit"]:hover {
 
 .messages_success {
     color: #0f5132;
-    background-color: #d1e7dd;
+    /*background-color: #d1e7dd;*/
+    background-color: #c5efbd;
     border-color: #badbcc;
 }
 
