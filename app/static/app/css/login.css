@@ -57,7 +57,7 @@
     margin-bottom: 10px;
 }
 
-.input_container:hover {
+.input_container:focus {
     box-shadow: 0 0 0 2px #e7f3ff;
     border-color: #1877f2;
 }
@@ -218,7 +218,7 @@ input[type="submit"]:hover {
     right: 0;
     bottom: 0;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     background-color: rgba(255, 255, 255, 0.6);
     display: none;
 }
@@ -276,6 +276,15 @@ select {
     border-radius: 3px;
     background-color: #e4e6eb;
     margin: 10px 0;
+}
+
+.errors_list {
+    list-style: none;
+    margin-top: .25rem;
+    margin-left: .25rem;
+    font-size: .875em;
+    /*color: #6c757d;*/
+    color: #ff0000;
 }
 
 @media only screen and (max-width: 1145px) {

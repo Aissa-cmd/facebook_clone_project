@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import (AbstractUser, UserManager)
+from ckeditor.fields import RichTextField
 
 
 class UserManagerAccounts(UserManager):
@@ -78,7 +79,8 @@ class Account(models.Model):
 class Post(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='posts')
-    content = models.TextField(null=False, blank=False)
+    # content = models.TextField(null=False, blank=False)
+    content = RichTextField(null=False, blank=False)
     date_posted = models.DateTimeField(auto_now_add=True, null=False, blank=False)
 
     def __str__(self):

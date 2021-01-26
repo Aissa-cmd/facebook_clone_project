@@ -75,22 +75,28 @@
                         <div class="input_container">
                         {{ account_form.first_name }}
                         </div>
+                        <ul class="errors_list">
+                            <!-- <li>this an error</li> -->
                         {% if account_formfirst_name.errors %}
                         {% for error in account_form.first_name.errors %}
                         <li class="form-text text-muted error-message">{{ error }}</li>
                         {% endfor %}
                         {% endif %}
+                    </ul>
                     </div>
                     <div class="col">
                         {{ account_form.last_name.label_tag }}
                         <div class="input_container">
                         {{ account_form.last_name }}
                         </div>
+                        <ul class="errors_list">
+                            <!-- <li>this an error</li> -->
                         {% if account_formlast_name.errors %}
                         {% for error in account_form.last_name.errors %}
                         <li class="form-text text-muted error-message">{{ error }}</li>
                         {% endfor %}
                         {% endif %}
+                    </ul>
                     </div>
                 </div>
                 <div class="row">
@@ -99,22 +105,28 @@
                         <div class="input_container">
                         {{ account_form.date_of_birth }}
                         </div>
+                        <ul class="errors_list">
+                            <!-- <li>this an error</li> -->
                         {% if account_formdate_of_birth.errors %}
                         {% for error in account_form.date_of_birth.errors %}
                         <li class="form-text text-muted error-message">{{ error }}</li>
                         {% endfor %}
                         {% endif %}
+                    </ul>
                     </div>
                     <div class="col">
                         {{ account_form.gender.label_tag }}
                         <div class="input_container">
                         {{ account_form.gender }}
                         </div>
+                        <ul class="errors_list">
+                            <!-- <li>this an error</li> -->
                         {% if account_formgender.errors %}
                         {% for error in account_form.gender.errors %}
                         <li class="form-text text-muted error-message">{{ error }}</li>
                         {% endfor %}
                         {% endif %}
+                    </ul>
                     </div>
                 </div>
                 <div class="row">
@@ -123,11 +135,14 @@
                         <div class="input_container">
                             {{ user_form.email }}
                         </div>
+                        <ul class="errors_list">
+                            <!-- <li>this an error</li> -->
                         {% if user_formemail.errors %}
                         {% for error in user_form.email.errors %}
                         <li class="form-text text-muted error-message">{{ error }}</li>
                         {% endfor %}
                         {% endif %}
+                    </ul>
                     </div>
                 </div>
                 <div class="row">
@@ -136,11 +151,14 @@
                         <div class="input_container">
                         {{ user_form.password1 }}
                         </div>
+                        <ul class="errors_list">
+                            <!-- <li>this an error</li> -->
                         {% if user_formpassword1.errors %}
                         {% for error in user_form.password1.errors %}
                         <li class="form-text text-muted error-message">{{ error }}</li>
                         {% endfor %}
                         {% endif %}
+                    </ul>
                     </div>
                 </div>
                 <div class="row">
@@ -149,11 +167,14 @@
                         <div class="input_container">
                         {{ user_form.password2 }}
                         </div>
-                        {% if user_formpassword2.errors %}
-                        {% for error in user_form.password2.errors %}
-                        <li class="form-text text-muted error-message">{{ error }}</li>
-                        {% endfor %}
-                        {% endif %}
+                        <ul class="errors_list">
+                            <!-- <li>this an error</li> -->
+                            {% if user_formpassword2.errors %}
+                            {% for error in user_form.password2.errors %}
+                            <li class="form-text text-muted error-message">{{ error }}</li>
+                            {% endfor %}
+                            {% endif %}
+                        </ul>
                     </div>
                 </div>
                 <input type="submit" class="register_btn" value="create account">
