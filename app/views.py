@@ -8,6 +8,8 @@ from .forms import UserRegisterForm, CreateAccount
 
 @login_required
 def index(request):
+    print(request.user.__dir__())
+    # print(f"sessionid = {request.COOKIES.get('sessionid')}")
     return render(request, 'app/index.html')
 
 
