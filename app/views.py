@@ -8,8 +8,6 @@ from .forms import UserRegisterForm, CreateAccount
 
 @login_required
 def index(request):
-    print(request.user.__dir__())
-    # print(f"sessionid = {request.COOKIES.get('sessionid')}")
     return render(request, 'app/index.html')
 
 
@@ -18,8 +16,8 @@ def login_view(request):
     user_form = UserRegisterForm()
     account_form = CreateAccount()
     context = {
-        'user_form' : user_form,
-        'account_form' : account_form,
+        'user_form': user_form,
+        'account_form': account_form,
     }
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -48,15 +46,18 @@ def create_new_user(request):
             new_user_email = user_form.cleaned_data.get('email')
             user_form.save()
             account_form.save()
-            messages.success(request, f'account has been created successfully for {new_user_email}')
+            messages.success(
+                request, f'account has been created successfully for {new_user_email}')
             return redirect('login')
         else:
-            messages.info(request, 'There was a problem creating your account, please try again and make sure you enter the right information.')   
+            messages.info(
+                request, 'There was a problem creating your account, please try again and make sure you enter the right information.')
     return redirect('login')
 
 
 def logout_view(request):
-    return
+    logout(request)
+    return redirect("login")
 
 
 @login_required
