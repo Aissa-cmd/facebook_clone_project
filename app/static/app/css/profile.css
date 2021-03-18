@@ -114,6 +114,33 @@ body {
     align-items: center;
 }
 
+.nav_right_options_module .nav_r_om_option {
+    cursor: pointer;
+    /*background-color: green;*/
+    padding: 10px;
+    width: 200px;
+} 
+
+a:link, a:hover, a:visited, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav_right_options_module .nav_r_om_option:hover {
+    background-color: #d7dade;
+}
+
+.nav_right_options_module {
+    position: absolute;
+    top: 60px;
+    right: 15px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 5px 7px -7px rgb(0 0 0 / 75%);
+    overflow: hidden;
+    display: none;
+}
+
 .navbar__right .right_option {
     cursor: pointer;
     width: 20px;
@@ -302,8 +329,7 @@ body {
     font-family: 'Hind', sans-serif;
     font-size: 13px;
     color: #ffffff;
-    top: 10px;
-    left: 10px;
+    left: 5px;
     display: none;
 }
 
