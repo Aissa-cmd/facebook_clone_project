@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -62,4 +62,4 @@ def logout_view(request):
 
 @login_required
 def profile_view(request):
-    return render(request, 'app/profile.html')
+    return HttpResponse("this is the profile page")

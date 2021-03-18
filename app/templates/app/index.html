@@ -1,11 +1,244 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>index</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'app/css/profile.css' %}">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+    <link rel="shortcut icon" href="https://static.xx.fbcdn.net/rsrc.php/yo/r/iRmz9lCMBD2.ico" type="image/x-icon">
+    <title>{{ user.account.get_full_name|title }} | Facebook</title>
 </head>
 <body>
-	this is the index page and you are viewint it because you are logged in
+    <!-- <div class="post_options_list_module"></div> -->
+    <div class="navbar">
+        <div class="navbar__left">
+            <div class="facebook_logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1200px-Facebook_Logo_%282019%29.png" alt="facebook">
+            </div>
+            <div class="input_search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search Facebook" name="search" id="search">
+            </div>
+        </div>
+        <div class="navbar__middle">
+            <div class="option_info_module"></div>
+            <div class="option option_hover" data-icon-name="Home">
+                <i class="fas fa-home"></i>
+            </div>
+            <div class="option option_hover" data-icon-name="Friends">
+                <i class="fas fa-user-friends"></i>
+            </div>
+            <div class="option option_hover" data-icon-name="Watch">
+                <i class="fas fa-video"></i>
+            </div>
+            <div class="option option_hover" data-icon-name="Marketplace">
+                <i class="fas fa-store"></i>
+            </div>
+            <div class="option option_hover" data-icon-name="Groups">
+                <i class="fas fa-users"></i>
+            </div>
+        </div>
+        <div class="navbar__right">
+            <div class="nav_right_options_module nav_r_om_option_display">
+                <a href="/logout">
+                    <div class="nav_r_om_option">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </div>
+                </a>
+            </div>
+            <div class="avatar_container" data-icon-name="Create">
+                <!-- <img class="user_avatar" src="https://dancingastronaut.com/wp-content/uploads/2017/10/21761529_1611966922200727_2629695311997614908_n.jpg"> -->
+                <img class="user_avatar" src="{{ user.account.profile_image }}" alt="">
+                <div class="username">{{ user.account.get_short_name|title }}</div>
+            </div>
+            <div class="right_option option_hover" data-icon-name="Create">
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="right_option option_hover" data-icon-name="Messenger">
+                <i class="fab fa-facebook-messenger"></i>
+            </div>
+            <div class="right_option option_hover" data-icon-name="Notifications">
+                <i class="fas fa-bell"></i>
+            </div>
+            <div class="right_option right_options_menu" data-icon-name="Account">
+                <i class="fas fa-sort-down"></i>
+            </div>
+        </div>
+    </div>
+    <div class="body">
+        <div class="body-left">
+            <div class="body-left-option">
+                <img class="user_avatar" src="{{ user.account.profile_image }}" alt="">
+                <div class="username">{{ user.account.get_full_name|title }}</div>
+            </div>
+            <div class="body-left-option">
+                <i class="fas fa-user-friends user_avatar"></i>
+                <div class="username">find friends</div>
+            </div>
+            <div class="body-left-option"></div>
+            <div class="body-left-option"></div>
+            <div class="body-left-option"></div>
+            <div class="body-left-option"></div>
+            <div class="body-left-option"></div>
+            <div class="body-left-option"></div>
+            <div class="body-left-option"></div>
+            <div class="body-left-option"></div>
+            <div class="body-left-option"></div>
+            <div class="body-left-option"></div>
+            <div class="body-left-option"></div>
+            <div class="body-left-option"></div>
+            <div class="body-left-option"></div>
+            <div class="body-left-option"></div>
+            <div class="body-left-option"></div>
+            <div class="body-left-option"></div>
+        </div>
+
+        <div class="body-middle">
+            <div class="new_post_container">
+                <div class="new_post_container__top">
+                    <div class="avatar_container_post">
+                        <img class="user_avatar_post" src="{{ user.account.profile_image }}" alt="">
+                    </div>
+                    <div class="new_post_input">
+                        <input placeholder="What's on your mind, {{ user.account.get_short_name|title }}?" type="text">
+                    </div>
+                </div>
+                <div class="hr_line"></div>
+                <div class="new_post_container__bottom">
+                    <div class="new_post_bottom_option">
+                        <i style="color: #f02849" class="fas fa-video"></i>
+                        <span class="option_label">Live Video</span>
+                    </div>
+                    <div class="new_post_bottom_option">
+                        <i style="color: #45bd62" class="far fa-images"></i>
+                        <span class="option_label">Photo/Video</span>
+                    </div>
+                    <div class="new_post_bottom_option">
+                        <i style="color: #f7b928" class="far fa-grin"></i>
+                        <span class="option_label">Feeling/Activity</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post_container">
+                <div class="post_top">
+                    <div class="avatar_container_post">
+                        <img class="user_avatar_post" src="{{ user.account.profile_image }}" alt="">
+                    </div>
+                    <div class="user_info">
+                        <h4>{{ user.account.get_full_name|title }}</h4>
+                        <p>17h</p>
+                    </div>
+                    <div class="post_options_list">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                </div>
+                <div class="post_middle">
+                    <div class="post_content">
+                        Seven-year-old Tim gets jealous when his parents give all their attention to his little brother. Tim soon learns that the baby can talk and the two team up to foil the plans of the CEO of Puppy Co.
+                    </div>
+                    <img src="https://oakvillenews.org/downloads/4443/download/bossbabypic1.jpe?cb=5cafe3dda8ac1d4c56129bf05ec1933d&w=640" alt="">
+                </div>
+                <div class="hr_line"></div>
+                <div class="post_bottom">
+                    <div class="new_post_bottom_option">
+                        <i class="far fa-thumbs-up"></i>
+                        <span class="option_label">Like</span>
+                    </div>
+                    <div class="new_post_bottom_option">
+                        <i class="far fa-comment-alt"></i>
+                        <span class="option_label">Comment</span>
+                    </div>
+                    <div class="new_post_bottom_option">
+                        <i class="fas fa-share"></i>
+                        <span class="option_label">Share</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post_container">
+                <div class="post_top">
+                    <div class="avatar_container_post">
+                        <img class="user_avatar_post" src="{{ user.account.profile_image }}" alt="">
+                    </div>
+                    <div class="user_info">
+                        <h4>{{ user.account.get_full_name|title }}</h4>
+                        <p>17h</p>
+                    </div>
+                    <div class="post_options_list">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                </div>
+                <div class="post_middle">
+                    <div class="post_content">
+                        Loki is a fictional character appearing in American comic books published by Marvel Comics. Created by writer Stan Lee, scripter Larry Lieber and penciller Jack Kirby, a version of the character first appeared in Venus #6. The modern-day incarnation of Loki first appeared in Journey into Mystery #85.
+                    </div>
+                    <img src="https://otakukart.com/wp-content/uploads/2020/12/Loki-1.jpg" alt="">
+                </div>
+                <div class="hr_line"></div>
+                <div class="post_bottom">
+                    <div class="new_post_bottom_option">
+                        <i class="far fa-thumbs-up"></i>
+                        <span class="option_label">Like</span>
+                    </div>
+                    <div class="new_post_bottom_option">
+                        <i class="far fa-comment-alt"></i>
+                        <span class="option_label">Comment</span>
+                    </div>
+                    <div class="new_post_bottom_option">
+                        <i class="fas fa-share"></i>
+                        <span class="option_label">Share</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post_container">
+                <div class="post_top">
+                    <div class="avatar_container_post">
+                        <img class="user_avatar_post" src="{{ user.account.profile_image }}" alt="">
+                    </div>
+                    <div class="user_info">
+                        <h4>{{ user.account.get_full_name|title }}</h4>
+                        <p>17h</p>
+                    </div>
+                    <div class="post_options_list">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                </div>
+                <div class="post_middle">
+                    <div class="post_content">
+                        Living idealized suburban lives, super-powered beings Wanda and Vision begin to suspect that everything is not as it seems.
+                    </div>
+                    <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/wandavision-poster-1600668936.jpg" alt="">
+                </div>
+                <div class="hr_line"></div>
+                <div class="post_bottom">
+                    <div class="new_post_bottom_option">
+                        <i class="far fa-thumbs-up"></i>
+                        <span class="option_label">Like</span>
+                    </div>
+                    <div class="new_post_bottom_option">
+                        <i class="far fa-comment-alt"></i>
+                        <span class="option_label">Comment</span>
+                    </div>
+                    <div class="new_post_bottom_option">
+                        <i class="fas fa-share"></i>
+                        <span class="option_label">Share</span>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="body-right"></div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'app/js/profile.js' %}"></script>
 </body>
 </html>
